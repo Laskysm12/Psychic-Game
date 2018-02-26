@@ -60,7 +60,7 @@
 
         // Use for loop to create a comma separated list of user guesses --> for loop goes here!!!
         for (var i = 0; i < lettersGuessed.length; i++) {
-            guessesSoFar = guessesSoFar + lettersGuessed[i] + ",";
+            guessesSoFar = guessesSoFar + lettersGuessed[i] + ", ";
         }
 
         // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
