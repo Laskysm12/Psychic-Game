@@ -8,15 +8,24 @@
         var wins = 0;
         var losses = 0;
         var guesses = 9;
+        var lettersGuessed = [];
+
+        // Reset game function
+        function resetGame() {
+            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            guesses = 9;
+            lettersGuessed = [];
+        }
+
+        resetGame()
 
         // This function is run whenever the user presses a key.
         document.onkeyup = function (event) {
 
         // Determines which key was pressed.
         var userGuess = event.key;
+        lettersGuessed.push(userGuess);
 
-        // Randomly chooses a choice from the options array. This is the Computer's guess.
-        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
         // Console log for reference
         console.log(computerChoices)
@@ -44,10 +53,15 @@
             }
             // This conditional prevents causes the "guesses left" counter to go back to 9 when the the number of guesses left goes below 1 (allowing only 9 guesses each round)
             if (guesses < 1) {
-                guesses = 9;
+                resetGame();
             }
-        
 
+        var guessesSoFar = "";
+
+        // Use for loop to create a comma separated list of user guesses --> for loop goes here!!!
+        for (var i = 0; i < lettersGuessed.length; i++) {
+            guessesSoFar = guessesSoFar + lettersGuessed[i] + ",";
+        }
 
         // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
         var html =
@@ -55,7 +69,7 @@
           "<p>Wins: " + wins + "</p>" +
           "<p>Losses: " + losses + "</p>" +
           "<p>Guesses Left: " + guesses + "</p>" +
-          "<p>Your Guesses so far: " + userGuess + "</p>";
+          "<p>Your Guesses so far: " + guessesSoFar + "</p>";
 
           
 
