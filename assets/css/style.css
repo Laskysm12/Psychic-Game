@@ -7,3 +7,12 @@ body  {
 h1  {
     color: white;
 }
+
+#game   {
+    background: black;
+    color: white;
+    margin-left: 550px;
+    margin-right: 550px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
