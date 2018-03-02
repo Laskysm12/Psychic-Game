@@ -43,6 +43,7 @@
 
             if ((userGuess === computerGuess)) {
                 wins++;
+                resetGame();
             } 
             else {
                 guesses--;
